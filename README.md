@@ -1,2 +1,2 @@
 # studyBuddy-frontend
-AI powered study buddy frontend
+AI Powered Learning Assistant (study buddy) frontend
