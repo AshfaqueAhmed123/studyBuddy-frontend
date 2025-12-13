@@ -12,11 +12,11 @@ import QuizResultPage from "./pages/Quizzes/QuizResultPage"
 import QuizTakePage from "./pages/Quizzes/QuizTakePage"
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import ProfilePage from "./pages/Profile/ProfilePage"
+import { useAuth } from './context/AuthContext'
 
 const App = () => {
 
-  const isAuthenticated  = true;
-  const loading = false;
+  const {isAuthenticated,loading} = useAuth()
 
   if (loading){
     return (
