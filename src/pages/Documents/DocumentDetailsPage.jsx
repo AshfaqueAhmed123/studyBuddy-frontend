@@ -6,6 +6,7 @@ import Spinner from "../../components/common/Spinner";
 import PageHeader from "../../components/common/PageHeader";
 import Tabs from "../../components/common/Tabs";
 import documentService from "../../services/documentService";
+import ChatInterface from "../../components/chat/ChatInterface";
 
 const DocumentDetailsPage = () => {
   const { id } = useParams();
@@ -83,7 +84,10 @@ const DocumentDetailsPage = () => {
     );
   };
 
-  const renderChat = () => <div className="p-4">Chat feature coming soon</div>;
+  const renderChat = () => {
+    return <ChatInterface/>
+  };
+
   const renderAiActions = () => (
     <div className="p-4">AI actions coming soon</div>
   );
