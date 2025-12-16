@@ -27,11 +27,11 @@ export const API_PATHS = {
     },
 
     FLASHCARDS:{
-        GET_ALL_FLASHCARD_SETS:(documentId) =>`/api/flashcards/${documentId}`,
-        GET_FLASHCARD_FOR_DOC:(documentId) => `/api/flashcards/${documentId}`,
-        REVIEW_FLASHCARD: (cardId) => `/api/flashcards/${cardId}/review`,
-        TOGGLE_STAR: (cardId) => `/api/flashcards/${cardId}/star`,
-        DELETE_FLASHCARD_SET:(id) => `/api/quizzes/${id}`
+        GET_ALL_FLASHCARD_SETS:(documentId) =>`/api/flashcard/${documentId}`,
+        GET_FLASHCARD_FOR_DOC:(documentId) => `/api/flashcard/${documentId}`,
+        REVIEW_FLASHCARD: (cardId) => `/api/flashcard/${cardId}/review`,
+        TOGGLE_STAR: (cardId) => `/api/flashcard/${cardId}/star`,
+        DELETE_FLASHCARD_SET:(id) => `/api/flashcard/${id}`
     },
 
     QUIZZES:{

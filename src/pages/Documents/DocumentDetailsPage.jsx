@@ -7,6 +7,8 @@ import PageHeader from "../../components/common/PageHeader";
 import Tabs from "../../components/common/Tabs";
 import documentService from "../../services/documentService";
 import ChatInterface from "../../components/chat/ChatInterface";
+import AIActions from "../../components/ai/AIActions";
+import FlashCardManager from "../../components/flashcards/FlashCardManager";
 
 const DocumentDetailsPage = () => {
   const { id } = useParams();
@@ -89,10 +91,11 @@ const DocumentDetailsPage = () => {
   };
 
   const renderAiActions = () => (
-    <div className="p-4">AI actions coming soon</div>
+    <AIActions/>
   );
+  
   const renderFlashcardsTab = () => (
-    <div className="p-4">Flashcards coming soon</div>
+   <FlashCardManager documentId={id}/>
   );
   const renderQuizzesTab = () => (
     <div className="p-4">Quizzes coming soon</div>

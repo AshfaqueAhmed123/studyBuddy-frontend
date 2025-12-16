@@ -188,7 +188,8 @@ const DocumentListPage = () => {
 
 
         {/* upload document modal */}
-        {isUploadModalOpen && (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        {isUploadModalOpen && (<div className="fixed inset-0 z-50 flex items-center justify-center className='fixed inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity'
+">
           {/* Modal container */}
           <div className="relative bg-white rounded-2xl w-full max-w-md p-6 shadow-lg">
             {/* Close button */}
@@ -284,7 +285,7 @@ const DocumentListPage = () => {
         )}
 
 
-        {isDeleteModalOpen && (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        {isDeleteModalOpen && (<div className="fixed inset-0 z-50 flex items-center justify-center className='fixed inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity">
           {/* Modal container */}
           <div className="relative bg-white rounded-2xl w-full max-w-sm p-6 shadow-lg">
             {/* Close button */}

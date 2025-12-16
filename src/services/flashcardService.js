@@ -13,7 +13,7 @@ const getAllFlashcardSets = async () => {
 
 const getFlashcardsForDocument = async (documentId) => {
     try {
-        const response = await axiosInstance.get(API_PATHS.FLASHCARDS.GET_FLASHCARD_FOR_DOC(documentId))
+        const response = await axiosInstance.post(API_PATHS.FLASHCARDS.GET_FLASHCARD_FOR_DOC(documentId))
         return response.data
     } catch (error) {
         throw error.response?.data || {message : "failed to fetch flashcards"}
