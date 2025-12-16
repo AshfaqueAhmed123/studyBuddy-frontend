@@ -68,11 +68,10 @@ const explainConcept = async (documentId,concept) => {
 
 const getChatHistory = async (documentId) => {
   try {
-    console.log("documentId",documentId)
-    const response = await axiosInstance.get(API_PATHS.AI.GET_CHAT_HISTORY, {
+    const response = await axiosInstance.get(`${API_PATHS.AI.GET_CHAT_HISTORY}${documentId}`, {
       params: { documentId },
     });
-    return response.data;
+    return response;
   } catch (error) {
     console.log(error);
     throw error.response?.data || { message: "Failed to fetch chat history" };

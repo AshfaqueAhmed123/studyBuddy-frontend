@@ -27,7 +27,18 @@ const ChatInterface = () => {
       try {
         setInitialLoading(true);
         const response = await aiService.getChatHistory(documentId);
-        setHistory(response.data || []);
+
+        const formattedHistory = response.data.data.flatMap(e =>
+          e.messages.map(msg => ({
+            _id: msg._id,
+            role: msg.role,
+            content: msg.content,
+            timestamp: new Date(msg.timestamp),
+            relevantChunks: msg.relevantChunks || [],
+          }))
+        );
+
+        setHistory(formattedHistory);
       } catch (error) {
         console.error("Failed to fetch chat history", error);
       } finally {
@@ -35,10 +46,13 @@ const ChatInterface = () => {
       }
     };
 
+
     if (documentId) {
       fetchChatHistory();
     }
   }, [documentId]);
+
+
 
   useEffect(() => {
     scrollToBottom();
@@ -90,9 +104,8 @@ const ChatInterface = () => {
     return (
       <div
         key={index}
-        className={`flex items-start gap-3 my-4 ${
-          isUser ? "justify-end" : "justify-start"
-        }`}
+        className={`flex items-start gap-3 my-4 ${isUser ? "justify-end" : "justify-start"
+          }`}
       >
         {/* AI Logo on left */}
         {!isUser && (
@@ -102,11 +115,10 @@ const ChatInterface = () => {
         )}
 
         <div
-          className={`max-w-lg p-4 rounded-2xl shadow-sm ${
-            isUser
+          className={`max-w-lg p-4 rounded-2xl shadow-sm ${isUser
               ? "bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-br-md"
               : "bg-white border border-slate-200/60 text-slate-800 rounded-bl-md"
-          }`}
+            }`}
         >
           {isUser ? (
             <p className="text-sm leading-relaxed">{msg.content}</p>

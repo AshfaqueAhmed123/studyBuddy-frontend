@@ -23,7 +23,7 @@ export const API_PATHS = {
         GENERATE_SUMMARY:"/api/aiRoutes/generate-summary",
         CHAT:"/api/aiRoutes/chat",
         EXPLAIN_CONCEPT:"/api/aiRoutes/explain-concept",
-        GET_CHAT_HISTORY:(documentId) => `/api/aiRoutes/chat-history/${documentId}`
+        GET_CHAT_HISTORY:`/api/aiRoutes/chat-history/`
     },
 
     FLASHCARDS:{
