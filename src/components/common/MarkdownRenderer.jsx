@@ -33,12 +33,12 @@ const MarkdownRenderer = ({ content }) => {
                     {String(children).replace(/\n$/, '')}
                     </SyntaxHighlighter>
             ):(
-                <Code
+                <code
                     className="bg-neutral-100 p-1 rounded font-mono text-sm"
                     {...props}
                 >
                     {children}
-                </Code>
+                </code>
             )
           },
           pre: ({node, ...props}) => <pre className='bg-neutral-800 text-white p-3 rounded-md overflow-x-auto font-mono text-sm my-4' {...props} />
