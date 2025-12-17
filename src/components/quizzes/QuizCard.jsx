@@ -75,8 +75,8 @@ const QuizCard = ({ quiz, onDelete }) => {
 
   {/* Action Button */}
   <div className="mt-5 sm:mt-6">
-    {quiz?.userAnswer?.length > 0 ? (
-      <Link to={`/quizzes/${quiz._id}`} className="block">
+    {quiz?.userAnswers?.length > 0   ? (
+      <Link to={`/quizzes/${quiz._id}/results`} className="block">
         <button
           className="inline-flex items-center gap-2
                      w-full h-10 sm:h-11
