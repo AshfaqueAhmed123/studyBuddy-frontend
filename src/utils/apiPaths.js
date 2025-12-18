@@ -1,4 +1,4 @@
-export const BASE_URL = "studybuddybackend.netlify.app"
+export const BASE_URL = "https://studybuddybackend.netlify.app"
 
 export const API_PATHS = {
     AUTH: {
