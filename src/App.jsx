@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from "./pages/Auth/LoginPage"
 import RegisterPage from "./pages/Auth/RegisterPage"
 import NotFoundPage from "./pages/NotFoundPage"
@@ -16,40 +16,40 @@ import { useAuth } from './context/AuthContext'
 
 const App = () => {
 
-  const {isAuthenticated,loading} = useAuth()
+  const { isAuthenticated, loading } = useAuth()
 
-  if (loading){
+  if (loading) {
     return (
       <div className='flex items-center justify-center h-screen '>
         <p>loading...</p>
       </div>
-    );  
+    );
   }
 
   return (
     <Router>
       <Routes>
         <Route
-        path='/'
-        element={isAuthenticated ? <Navigate to="/dashboard" replace/> : <Navigate to="/login" replace />}
+          path='/'
+          element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />}
         />
-        <Route path='/login' element={<LoginPage/>} />
+        <Route path='/login' element={<LoginPage />} />
 
-        <Route path='/register' element={<RegisterPage/>} />
+        <Route path='/register' element={<RegisterPage />} />
 
-        <Route element={<ProtectedRoute/>}>
-          <Route path='/dashboard' element={<DashboardPage/>}/>
-          <Route path='/documents' element={<DocumentListPage/>} />
-          <Route path='documents/:id' element={<DocumentDetailsPage/>}/>
-          <Route path='/flashcards' element={<FlashcardsListPage/>} />
-          <Route path='/document/:id/flashcards' element={<FlashcardPage/>} />
-          <Route path='/quizzes/:quizId' element={<QuizTakePage/>} />
-          <Route path='/quizzes/:quizId/results' element={<QuizResultPage/>} />
-          <Route path='/profile' element={<ProfilePage/>} />
+        <Route element={<ProtectedRoute />}>
+          <Route path='/dashboard' element={<DashboardPage />} />
+          <Route path='/documents' element={<DocumentListPage />} />
+          <Route path='documents/:id' element={<DocumentDetailsPage />} />
+          <Route path='/flashcards' element={<FlashcardsListPage />} />
+          <Route path='/document/:id/flashcards' element={<FlashcardPage />} />
+          <Route path='/quizzes/:quizId' element={<QuizTakePage />} />
+          <Route path='/quizzes/:quizId/results' element={<QuizResultPage />} />
+          <Route path='/profile' element={<ProfilePage />} />
 
         </Route>
 
-        <Route path='/*' element={<NotFoundPage/>} />
+        <Route path='/*' element={<NotFoundPage />} />
 
       </Routes>
     </Router>

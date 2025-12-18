@@ -43,7 +43,6 @@ const getDocumentById = async (id) => {
 }
 
 
-
 const documentService = {
     getDocuments,
     uploadDocument,

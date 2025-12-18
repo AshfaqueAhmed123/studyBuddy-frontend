@@ -1,6 +1,7 @@
 import axiosInstance from "../utils/axiosinstance";
 import { API_PATHS } from "../utils/apiPaths";
 
+
 const generateFlashcards = async (documentId,options) => {
     try {
         const response = await axiosInstance.post(API_PATHS.AI.GENERATE_FLASHCARDS,{

@@ -29,6 +29,7 @@ const submitQuiz = async (quizId,answers) => {
         throw error.response?.data || {message : "failed to submit quiz"}
     }
 }
+// TODO : fix submit quiz
 
 const getQuizResults = async (quizId) => {
     try {
@@ -38,6 +39,7 @@ const getQuizResults = async (quizId) => {
         throw error.response?.data || {message : "failed to fetch quiz results"}
     }
 }
+// TODO : fix quiz results
 
 
 const deleteQuiz = async (quizId) => {

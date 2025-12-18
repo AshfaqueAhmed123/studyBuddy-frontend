@@ -54,23 +54,51 @@ const QuizTakePage = () => {
     }
   };
 
+  // const handleSubmitQuiz = async () => {
+  //   setSubmitting(true)
+  //   try {
+  //     const formattedAnswers = Object.keys(selectedAnswers).map(questionId => {
+  //       const question = quiz.questions.find(q => q._id === questionId)
+  //       const questionIndex = quiz.questions.findIndex(q => q._id === questionId)
+  //       const optionIndex = selectedAnswers[questionId]
+  //       const selectedAnswer = question.options[optionIndex]
+  //       return {questionIndex,selectedAnswer}
+  //     })
+
+  //     await quizService.submitQuiz(quizId,formattedAnswers)
+  //     toast.success("Quiz submitted successfully")
+  //     navigate(`/quizzes/${quizId}/results`)
+  //   } catch (error) {
+  //     toast.error(error?.message || "failed to submit Quiz")
+  //   }finally{
+  //     setSubmitting(false)
+  //   }
+  // }
   const handleSubmitQuiz = async () => {
     setSubmitting(true)
     try {
       const formattedAnswers = Object.keys(selectedAnswers).map(questionId => {
-        const question = quiz.questions.find(q => q._id === questionId)
-        const questionIndex = quiz.questions.findIndex(q => q._id === questionId)
+        const question = quiz.questions.find(q => q._id.toString() === questionId) 
+        const questionIndex = quiz.questions.findIndex(q => q._id.toString() === questionId)
         const optionIndex = selectedAnswers[questionId]
         const selectedAnswer = question.options[optionIndex]
-        return {questionIndex,selectedAnswer}
+        console.log({
+          "question":question,
+          "questionIndex":questionIndex,
+          "optionIndex":optionIndex,
+          "selectedAnswer":selectedAnswer
+      })
+        return { questionIndex, selectedAnswer }
       })
 
-      await quizService.submitQuiz(quizId,formattedAnswers)
+      
+
+      await quizService.submitQuiz(quizId, formattedAnswers)
       toast.success("Quiz submitted successfully")
       navigate(`/quizzes/${quizId}/results`)
     } catch (error) {
       toast.error(error?.message || "failed to submit Quiz")
-    }finally{
+    } finally {
       setSubmitting(false)
     }
   }

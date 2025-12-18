@@ -22,6 +22,8 @@ const DocumentCard = ({
     onDelete
 }) => {
 
+    console.log("document", document)
+
     const navigate = useNavigate();
 
     const handleNavigate = () => {

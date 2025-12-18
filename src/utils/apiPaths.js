@@ -1,4 +1,4 @@
-export const BASE_URL = "https://studybuddybackend.netlify.app"
+export const BASE_URL = "http://localhost:8000"
 
 export const API_PATHS = {
     AUTH: {
@@ -9,40 +9,40 @@ export const API_PATHS = {
         CHANGE_PASSWORD: "/api/auth/change-password"
     },
 
-    DOCUMENTS:{
-        UPLOAD:"/api/documents/upload",
-        GET_DOCUMENTS:"/api/documents/",
-        GET_DOCUMENT_BY_ID:(id) => `/api/documents/${id}`,
-        UPDATE_DOCUMENT:(id) => `/api/documents/${id}`,
-        DELETE_DOCUMENT:(id) => `/api/documents/${id}`
+    DOCUMENTS: {
+        UPLOAD: "/api/documents/upload",
+        GET_DOCUMENTS: "/api/documents/",
+        GET_DOCUMENT_BY_ID: (id) => `/api/documents/${id}`,
+        UPDATE_DOCUMENT: (id) => `/api/documents/${id}`,
+        DELETE_DOCUMENT: (id) => `/api/documents/${id}`
     },
 
-    AI:{
-        GENERATE_FLASHCARDS:"/api/aiRoutes/generate-flashcards",
-        GENERATE_QUIZ:"/api/aiRoutes/generate-quiz",
-        GENERATE_SUMMARY:"/api/aiRoutes/generate-summary",
-        CHAT:"/api/aiRoutes/chat",
-        EXPLAIN_CONCEPT:"/api/aiRoutes/explain-concept",
-        GET_CHAT_HISTORY:`/api/aiRoutes/chat-history/`
+    AI: {
+        GENERATE_FLASHCARDS: "/api/aiRoutes/generate-flashcards",
+        GENERATE_QUIZ: "/api/aiRoutes/generate-quiz",
+        GENERATE_SUMMARY: "/api/aiRoutes/generate-summary",
+        CHAT: "/api/aiRoutes/chat",
+        EXPLAIN_CONCEPT: "/api/aiRoutes/explain-concept",
+        GET_CHAT_HISTORY: `/api/aiRoutes/chat-history/`
     },
 
-    FLASHCARDS:{
-        GET_ALL_FLASHCARD_SETS:(documentId) =>`/api/flashcard/${documentId}`,
-        GET_FLASHCARD_FOR_DOC:(documentId) => `/api/flashcard/${documentId}`,
+    FLASHCARDS: {
+        GET_ALL_FLASHCARD_SETS: (documentId) => `/api/flashcard/${documentId}`,
+        GET_FLASHCARD_FOR_DOC: (documentId) => `/api/flashcard/${documentId}`,
         REVIEW_FLASHCARD: (cardId) => `/api/flashcard/${cardId}/review`,
         TOGGLE_STAR: (cardId) => `/api/flashcard/${cardId}/star`,
-        DELETE_FLASHCARD_SET:(id) => `/api/flashcard/${id}`
+        DELETE_FLASHCARD_SET: (id) => `/api/flashcard/${id}`
     },
 
-    QUIZZES:{
+    QUIZZES: {
         GET_QUIZZES_FOR_DOC: (documentId) => `/api/quizzes/${documentId}`,
         GET_QUIZ_BY_ID: (id) => `/api/quizzes/quiz/${id}`,
         SUBMIT_QUIZ: (id) => `/api/quizzes/${id}/submit`,
         GET_QUIZ_RESULTS: (id) => `/api/quizzes/${id}/results`,
-        DELETE_QUIZ:(id) => `/api/quizzes/${id}`
+        DELETE_QUIZ: (id) => `/api/quizzes/${id}`
     },
 
-    PROGRESS:{
-        GET_DASHBOARD:`/api/progress/dashboard`,
+    PROGRESS: {
+        GET_DASHBOARD: `/api/progress/dashboard`,
     }
 } 
