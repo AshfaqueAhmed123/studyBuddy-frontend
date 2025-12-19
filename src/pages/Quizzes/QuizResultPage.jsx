@@ -24,8 +24,6 @@ const QuizResultPage = () => {
     const fetchResults = async () => {
       try {
         const res = await quizService.getQuizResults(quizId);
-        console.log("API RESPONSE:", res);
-
         setQuiz(res.data.quiz);
         setResults(res.data.results);
       } catch (err) {
@@ -106,7 +104,7 @@ const QuizResultPage = () => {
       {/* DETAILED REVIEW */}
       <div className="space-y-6">
         {results.map((q, index) => {
-          const correctIndex = Number(q.correctAnswer) - 1;
+          const correctIndex = Number(q.correctAnswer.slice(0,2)) - 1;
 
           return (
             <div
@@ -128,28 +126,33 @@ const QuizResultPage = () => {
 
               <div className="space-y-2">
                 {q.options.map((opt, idx) => {
-                  const isCorrect = idx === correctIndex;
+                  const isCorrectOption = idx === correctIndex;
                   const isSelected = q.selectedAnswer === opt;
+                  const isWrongSelected = isSelected && !q.isCorrect;
+
+                  console.log(q.correctAnswer.slice(0,2))
 
                   return (
                     <div
                       key={idx}
                       className={`flex justify-between items-center px-4 py-2 rounded-lg border text-sm
-                        ${isCorrect
-                          ? "bg-emerald-100 border-emerald-400"
-                          : isSelected
-                            ? "bg-rose-100 border-rose-400"
-                            : "border-slate-200"
+                        ${
+                          isCorrectOption
+                            ? "bg-emerald-100 border-emerald-400"
+                            : isWrongSelected
+                              ? "bg-rose-100 border-rose-400"
+                              : "border-slate-200"
                         }`}
                     >
                       <span>{opt}</span>
 
-                      {isCorrect && (
+                      {isCorrectOption && (
                         <span className="text-xs font-semibold text-emerald-700">
                           Correct
                         </span>
                       )}
-                      {isSelected && !isCorrect && (
+
+                      {isWrongSelected && (
                         <span className="text-xs font-semibold text-rose-700">
                           Your Answer
                         </span>
